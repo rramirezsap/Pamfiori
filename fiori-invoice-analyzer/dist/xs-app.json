@@ -1,0 +1,20 @@
+{
+  "authenticationMethod": "none",
+  "routes": [
+    {
+      "source": "^/resources/(.*)$",
+      "target": "$1",
+      "localDir": "resources"
+    },
+    {
+      "source": "^/test-resources/(.*)$",
+      "target": "$1",
+      "localDir": "test-resources"
+    },
+    {
+      "source": "^(.*)$",
+      "target": "$1",
+      "localDir": "."
+    }
+  ]
+}

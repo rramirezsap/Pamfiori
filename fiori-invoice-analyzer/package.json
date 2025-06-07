@@ -1,0 +1,23 @@
+{
+  "name": "invoice-analyzer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SAPUI5 Fiori freestyle app for invoice analysis",
+  "scripts": {
+    "start": "ui5 serve -o /index.html",
+    "build": "ui5 build --all"
+  },
+  "dependencies": {
+    "@ui5/cli": "^3.11.6"
+  },
+  "devDependencies": {
+    "ui5-task-copy-resources": "^0.0.1"
+  },
+  "ui5": {
+    "dependencies": [
+      "@openui5/sap.m",
+      "@openui5/sap.ui.core",
+      "@openui5/sap.ui.layout"
+    ]
+  }
+}

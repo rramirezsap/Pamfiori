@@ -1,0 +1,2 @@
+sap.ui.define([],function(){"use strict";return{statusState:function(t){return t?"Error":"Success"},statusText:function(t){return t?"Con Error":"Correcta"},toUpperCase:function(t){return t?t.toUpperCase():""}}});
+//# sourceMappingURL=formatter.js.map

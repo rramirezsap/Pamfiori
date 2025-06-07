@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="DocumentService">
+            <EntityType Name="Document">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="Name" Type="Edm.String"/>
+                <Property Name="Type" Type="Edm.String"/>
+                <Property Name="Size" Type="Edm.Int32"/>
+                <Property Name="LastModified" Type="Edm.DateTimeOffset"/>
+            </EntityType>
+            <EntityContainer Name="Container">
+                <EntitySet Name="Documents" EntityType="DocumentService.Document"/>
+            </EntityContainer>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
+

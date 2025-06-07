@@ -1,0 +1,67 @@
+<mvc:View
+    controllerName="invoice.analyzer.controller.App"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:unified="sap.ui.unified"
+    displayBlock="true"
+    id="app">
+
+    <VBox class="sapUiSmallMargin">
+        <!-- Centered Title -->
+        <HBox justifyContent="Center" class="sapUiSmallMarginBottom">
+            <Title text="PROACTIVE ALERTS PROCESS LIFESAVER" level="H2" />
+        </HBox>
+
+        <!-- Centered Upload Button -->
+        <HBox justifyContent="Center" class="sapUiSmallMarginBottom">
+            <unified:FileUploader
+                id="fileUploader"
+                change=".onUpload"
+                uploadUrl=""
+                buttonText="Upload Excel File"
+                name="myFile" />
+        </HBox>
+
+        <!-- Results Panel -->
+        <Panel
+            headerText="Invoice Analysis Results"
+            class="sapUiResponsiveMargin"
+            expandable="false"
+            expanded="true">
+
+            <Table
+                id="resultsTable"
+                items="{resultsModel>/results}"
+                class="sapUiSmallMarginTop">
+                <columns>
+                    <Column><Text text="Invoice" /></Column>
+                    <Column><Text text="Status" /></Column>
+                    <Column><Text text="ServiceNow Case" /></Column>
+                    <Column><Text text="Error" /></Column>
+                    <Column><Text text="AI Insight" /></Column>
+                    <Column><Text text="Suggested Action" /></Column>
+                </columns>
+                <items>
+                    <ColumnListItem
+                        highlight="{= ${resultsModel>status} === 'Approved' ? 'Warning' : 'Success'}">
+                        <cells>
+                            <Text text="{resultsModel>invoiceId}" />
+                            <ObjectStatus
+                                text="{resultsModel>status}"
+                                state="{= ${resultsModel>status} === 'Approved' ? 'Warning' : 'Success'}"
+                                icon="{= ${resultsModel>status} === 'Approved' ? 'sap-icon://alert' : 'sap-icon://message-success'}" />
+                            <Text text="{= ${resultsModel>serviceNowCase} ? ${resultsModel>serviceNowCase} : 'Not applicable'}" />
+                            <Text text="{resultsModel>error}" />
+                            <Text text="{resultsModel>aiInsight}" />
+                            <Text text="{resultsModel>suggestedAction}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </Panel>
+        <HBox justifyContent="Center" class="sapUiSmallMarginBottom">
+    <Button text="View AI Dashboard" press=".onNavigateToDashboard" />
+</HBox>
+
+    </VBox>
+</mvc:View>

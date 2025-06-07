@@ -1,0 +1,1 @@
+{"version":3,"file":"formatter.js","names":["sap","ui","define","statusState","error","statusText","toUpperCase","value"],"sources":["formatter-dbg.js"],"mappings":"AAAAA,IAAIC,GAAGC,OAAO,GAAI,WAChB,aAEA,MAAO,CAILC,YAAa,SAAUC,GACrB,OAAOA,EAAQ,QAAU,SAC3B,EAKAC,WAAY,SAAUD,GACpB,OAAOA,EAAQ,YAAc,UAC/B,EAKAE,YAAa,SAAUC,GACrB,OAAOA,EAAQA,EAAMD,cAAgB,EACvC,EAEJ","ignoreList":[]}

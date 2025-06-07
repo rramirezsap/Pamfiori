@@ -1,0 +1,24 @@
+ID: fiori.documentreview
+_schema-version: '3.1'
+version: 1.0.0
+description: Fiori Document Review Application
+
+parameters:
+  enable-parallel-deployments: true
+
+modules:
+  - name: fiori.documentreview
+    type: html5
+    path: fiori-invoice-analyzer
+    parameters:
+      disk-quota: 256M
+      memory: 256M
+    requires:
+      - name: fiori.documentreview_dest
+
+resources:
+  - name: fiori.documentreview_dest
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: destination
+      service-plan: lite

@@ -1,0 +1,2 @@
+sap.ui.define([],function(){"use strict";return{parse:function(e){return new Promise((n,t)=>{const o=new FileReader;o.onload=function(e){try{const t=e.target.result;const o=XLSX.read(t,{type:"binary"});const r=o.SheetNames[0];const s=o.Sheets[r];const i=XLSX.utils.sheet_to_json(s);const c=i.map(e=>({invoice:e.invoice||e.Invoice||"",vendor:e.vendor||e.Vendor||""}));n(c)}catch(e){t(e)}};o.onerror=t;o.readAsBinaryString(e)})}}});
+//# sourceMappingURL=ExcelParser.js.map

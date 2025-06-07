@@ -1,0 +1,7 @@
+---
+applications:
+  - name: invoice-analyzer
+    path: fiori-invoice-analyzer/dist
+    memory: 64M
+    buildpacks:
+      - staticfile_buildpack

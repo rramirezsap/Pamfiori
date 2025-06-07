@@ -1,0 +1,2 @@
+sap.ui.define(["sap/ui/core/util/MockServer"],function(e){"use strict";return{init:function(){var t=new e({rootUri:"http://localhost:4004/odata/v4/DocumentService/"});e.config({autoRespond:true,autoRespondAfter:1e3});var o=jQuery.sap.getModulePath("fiori.documentreview.localService");t.simulate(o+"/metadata.xml",{sMockdataBaseUrl:o+"/mockdata",bGenerateMissingMockData:true});t.start();console.log("✅ MockServer iniciado")}}});
+//# sourceMappingURL=mockserver.js.map

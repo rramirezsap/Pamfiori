@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Invoice Analyzer</title>
+
+    <!-- Carga de SAPUI5 desde OpenUI5 CDN -->
+    <script
+      id="sap-ui-bootstrap"
+      src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+      data-sap-ui-theme="sap_horizon"
+      data-sap-ui-libs="sap.m,sap.ui.core,sap.ui.layout"
+      data-sap-ui-compatVersion="edge"
+      data-sap-ui-onInit="module:sap/ui/core/ComponentSupport"
+      data-sap-ui-resourceroots='{"invoice.analyzer": "./" }'>
+    </script>
+
+    <!-- Librería XLSX para leer archivos Excel -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  </head>
+
+  <body class="sapUiBody" id="content">
+    <div
+      data-sap-ui-component
+      data-name="invoice.analyzer"
+      data-id="container"
+      data-settings='{"id" : "invoiceAnalyzer"}'>
+    </div>
+  </body>
+</html>
