@@ -12,6 +12,7 @@ sap.ui.define([
 
     init: function () {
       UIComponent.prototype.init.apply(this, arguments);
+      jQuery.sap.includeStyleSheet("style.css");
       this.setModel(models.createDeviceModel(), "device");
       this.getRouter().initialize();
     }

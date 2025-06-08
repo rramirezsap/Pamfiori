@@ -1,2 +1,2 @@
-sap.ui.define(["sap/ui/core/UIComponent","sap/ui/Device","invoice/analyzer/model/models"],function(e,i,t){"use strict";return e.extend("invoice.analyzer.Component",{metadata:{manifest:"json"},init:function(){e.prototype.init.apply(this,arguments);this.setModel(t.createDeviceModel(),"device");this.getRouter().initialize()}})});
+sap.ui.define(["sap/ui/core/UIComponent","sap/ui/Device","invoice/analyzer/model/models"],function(e,i,t){"use strict";return e.extend("invoice.analyzer.Component",{metadata:{manifest:"json"},init:function(){e.prototype.init.apply(this,arguments);jQuery.sap.includeStyleSheet("style.css");this.setModel(t.createDeviceModel(),"device");this.getRouter().initialize()}})});
 //# sourceMappingURL=Component.js.map

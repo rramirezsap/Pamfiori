@@ -4,7 +4,6 @@
   xmlns="sap.m"
   xmlns:unified="sap.ui.unified"
   displayBlock="true">
-
   <App id="app">
     <pages>
       <Page showHeader="false">
@@ -30,7 +29,6 @@
             class="sapUiResponsiveMargin"
             expandable="false"
             expanded="true">
-
             <Table
               id="resultsTable"
               items="{resultsModel>/results}"
@@ -62,10 +60,30 @@
             </Table>
           </Panel>
 
-          <!-- Botón para ir al dashboard -->
+          <!-- Dashboard Button -->
           <HBox justifyContent="Center" class="sapUiSmallMarginBottom">
             <Button text="View AI Dashboard" press=".onNavigateToDashboard" />
           </HBox>
+
+          <!-- Ask AI Button -->
+      <!-- Chat-style AI input -->
+<HBox justifyContent="Center" class="sapUiSmallMarginBottom sapUiTinyMarginTop sapUiResponsiveMargin">
+  <Input
+    id="aiInput"
+    placeholder="Type your message..."
+    width="80%"
+    class="chatInput"
+    />
+  <Button
+    text=""
+    icon="sap-icon://paper-plane"
+    tooltip="Send message"
+    type="Emphasized"
+    press=".onAskAI"
+    class="chatSendButton sapUiTinyMarginBegin" />
+</HBox>
+
+
         </VBox>
       </Page>
     </pages>

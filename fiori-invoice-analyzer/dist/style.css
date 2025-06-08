@@ -1,0 +1,20 @@
+
+.chatInput {
+  border-radius: 1rem;
+  background-color: #f4f4f4;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.chatSendButton {
+  border-radius: 50%;
+  background-color: #0070f2;
+  color: white;
+  padding: 0.5rem;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
