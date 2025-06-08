@@ -7,68 +7,74 @@
   xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
   displayBlock="true">
 
-  <VBox class="sapUiSmallMargin">
-    <Title text="AI-Powered Invoice Dashboard" level="H2" class="sapUiSmallMarginBottom" />
-    <Text text="AI helps prioritize actions and reduce manual review time." class="sapUiSmallMarginBottom" />
+  <Page title="AI Dashboard" scrollable="true">
+    <content>
+      <ScrollContainer vertical="true" height="100%">
+        <VBox class="sapUiSmallMargin">
+          <Title text="AI-Powered Invoice Dashboard" level="H2" class="sapUiSmallMarginBottom" />
+          <Text text="AI helps prioritize actions and reduce manual review time." class="sapUiSmallMarginBottom" />
 
-    <!-- Chart 1: Invoice Status -->
-    <Panel headerText="Invoices by Status" class="sapUiResponsiveMargin sapUiSmallMarginBottom">
-      <viz:VizFrame id="statusChart" width="100%" height="300px" uiConfig="{applicationSet:'fiori'}" vizType="column">
-        <viz:dataset>
-          <viz.data:FlattenedDataset data="{dashboardModel>/statusData}">
-            <viz.data:dimensions>
-              <viz.data:DimensionDefinition name="Status" value="{dashboardModel>label}" />
-            </viz.data:dimensions>
-            <viz.data:measures>
-              <viz.data:MeasureDefinition name="Count" value="{dashboardModel>value}" />
-            </viz.data:measures>
-          </viz.data:FlattenedDataset>
-        </viz:dataset>
-        <viz:feeds>
-          <viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Count" />
-          <viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Status" />
-        </viz:feeds>
-      </viz:VizFrame>
-    </Panel>
+          <!-- Chart 1: Invoice Status -->
+          <Panel headerText="Invoices by Status" class="sapUiResponsiveMargin sapUiSmallMarginBottom">
+            <viz:VizFrame id="statusChart" width="100%" height="250px" uiConfig="{applicationSet:'fiori'}" vizType="column">
+              <viz:dataset>
+                <viz.data:FlattenedDataset data="{dashboardModel>/statusData}">
+                  <viz.data:dimensions>
+                    <viz.data:DimensionDefinition name="Status" value="{dashboardModel>label}" />
+                  </viz.data:dimensions>
+                  <viz.data:measures>
+                    <viz.data:MeasureDefinition name="Count" value="{dashboardModel>value}" />
+                  </viz.data:measures>
+                </viz.data:FlattenedDataset>
+              </viz:dataset>
+              <viz:feeds>
+                <viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Count" />
+                <viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Status" />
+              </viz:feeds>
+            </viz:VizFrame>
+          </Panel>
 
-    <!-- Chart 2: AI Insights -->
-    <Panel headerText="AI Insight Frequency" class="sapUiResponsiveMargin sapUiSmallMarginBottom">
-      <viz:VizFrame id="insightChart" width="100%" height="300px" uiConfig="{applicationSet:'fiori'}" vizType="bar">
-        <viz:dataset>
-          <viz.data:FlattenedDataset data="{dashboardModel>/insightData}">
-            <viz.data:dimensions>
-              <viz.data:DimensionDefinition name="Insight" value="{dashboardModel>label}" />
-            </viz.data:dimensions>
-            <viz.data:measures>
-              <viz.data:MeasureDefinition name="Count" value="{dashboardModel>value}" />
-            </viz.data:measures>
-          </viz.data:FlattenedDataset>
-        </viz:dataset>
-        <viz:feeds>
-          <viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Count" />
-          <viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Insight" />
-        </viz:feeds>
-      </viz:VizFrame>
-    </Panel>
+          <!-- Chart 2: AI Insights -->
+          <Panel headerText="AI Insight Frequency" class="sapUiResponsiveMargin sapUiSmallMarginBottom">
+            <viz:VizFrame id="insightChart" width="100%" height="250px" uiConfig="{applicationSet:'fiori'}" vizType="bar">
+              <viz:dataset>
+                <viz.data:FlattenedDataset data="{dashboardModel>/insightData}">
+                  <viz.data:dimensions>
+                    <viz.data:DimensionDefinition name="Insight" value="{dashboardModel>label}" />
+                  </viz.data:dimensions>
+                  <viz.data:measures>
+                    <viz.data:MeasureDefinition name="Count" value="{dashboardModel>value}" />
+                  </viz.data:measures>
+                </viz.data:FlattenedDataset>
+              </viz:dataset>
+              <viz:feeds>
+                <viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Count" />
+                <viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Insight" />
+              </viz:feeds>
+            </viz:VizFrame>
+          </Panel>
 
-    <!-- Chart 3: Suggested Actions -->
-    <Panel headerText="Suggested Actions Frequency" class="sapUiResponsiveMargin">
-      <viz:VizFrame id="actionChart" width="100%" height="300px" uiConfig="{applicationSet:'fiori'}" vizType="bar">
-        <viz:dataset>
-          <viz.data:FlattenedDataset data="{dashboardModel>/actionData}">
-            <viz.data:dimensions>
-              <viz.data:DimensionDefinition name="Action" value="{dashboardModel>label}" />
-            </viz.data:dimensions>
-            <viz.data:measures>
-              <viz.data:MeasureDefinition name="Count" value="{dashboardModel>value}" />
-            </viz.data:measures>
-          </viz.data:FlattenedDataset>
-        </viz:dataset>
-        <viz:feeds>
-          <viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Count" />
-          <viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Action" />
-        </viz:feeds>
-      </viz:VizFrame>
-    </Panel>
-  </VBox>
+          <!-- Chart 3: Suggested Actions -->
+          <Panel headerText="Suggested Actions Frequency" class="sapUiResponsiveMargin">
+            <viz:VizFrame id="actionChart" width="100%" height="250px" uiConfig="{applicationSet:'fiori'}" vizType="bar">
+              <viz:dataset>
+                <viz.data:FlattenedDataset data="{dashboardModel>/actionData}">
+                  <viz.data:dimensions>
+                    <viz.data:DimensionDefinition name="Action" value="{dashboardModel>label}" />
+                  </viz.data:dimensions>
+                  <viz.data:measures>
+                    <viz.data:MeasureDefinition name="Count" value="{dashboardModel>value}" />
+                  </viz.data:measures>
+                </viz.data:FlattenedDataset>
+              </viz:dataset>
+              <viz:feeds>
+                <viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Count" />
+                <viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Action" />
+              </viz:feeds>
+            </viz:VizFrame>
+          </Panel>
+        </VBox>
+      </ScrollContainer>
+    </content>
+  </Page>
 </mvc:View>
