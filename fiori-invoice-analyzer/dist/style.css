@@ -1,20 +1,36 @@
-
-.chatInput {
-  border-radius: 1rem;
-  background-color: #f4f4f4;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  font-size: 1rem;
+.chatSidebar {
+  padding-left: 1rem;
+  border-left: 1px solid #ccc;
 }
 
-.chatSendButton {
-  border-radius: 50%;
-  background-color: #0070f2;
-  color: white;
-  padding: 0.5rem;
-  min-width: 2.5rem;
-  min-height: 2.5rem;
+.chatContainer {
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  height: 400px;
+  overflow-y: auto;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.userMessage {
+  background-color: #e0f7fa;
+  padding: 0.5rem;
+  border-radius: 8px;
+  align-self: flex-end;
+  text-align: right;
+}
+
+.aiMessage {
+  background-color: #f1f8e9;
+  padding: 0.5rem;
+  border-radius: 8px;
+  align-self: flex-start;
+  text-align: left;
+}
+
+.errorMessage {
+  color: red;
+  font-style: italic;
 }

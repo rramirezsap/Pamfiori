@@ -2,9 +2,11 @@ sap.ui.define([
   "sap/ui/core/mvc/Controller",
   "sap/ui/model/json/JSONModel",
   "sap/m/BusyDialog",
-  "sap/m/MessageBox"
-], function (Controller, JSONModel, BusyDialog, MessageBox) {
+  "sap/m/MessageToast",
+  "sap/m/Text"
+], function (Controller, JSONModel, BusyDialog, MessageToast, Text) {
   "use strict";
+
   return Controller.extend("invoice.analyzer.controller.App", {
     onInit: function () {
       const oModel = new JSONModel({ results: [] });
@@ -18,6 +20,7 @@ sap.ui.define([
         text: "Processing file, please wait..."
       });
       oBusyDialog.open();
+
       setTimeout(function () {
         const aResults = [
           {
@@ -48,35 +51,46 @@ sap.ui.define([
       oRouter.navTo("Dashboard");
     },
 
-    
-onAskAI: function () {
-var sQuestion = this.getView().byId("aiInput").getValue();
+    onAskAI: function () {
+      const oView = this.getView();
+      const sQuestion = oView.byId("aiInput").getValue();
+      const oChatContainer = oView.byId("chatContainer");
 
-if (!sQuestion) {
- sap.m.MessageBox.warning("Please enter a question.");
- return;
- }
+      if (!sQuestion) {
+        MessageToast.show("Please enter a question.");
+        return;
+      }
 
- fetch("https://invoice-ai-agent.cfapps.us10-001.hana.ondemand.com/ask", {
- method: "POST",
-headers: {
-"Content-Type": "application/json"
- },
- body: JSON.stringify({ question: sQuestion })
- })
- .then(response => {
- if (!response.ok) {
- throw new Error("Server response error");
- }
- return response.json();
- })
- .then(data => {
- sap.m.MessageBox.information("AI Response:\n" + data.answer);
- })
- .catch(error => {
- sap.m.MessageBox.error("Error contacting AI service:\n" + error.message);
+      oChatContainer.addItem(new Text({
+        text: "👤 " + sQuestion,
+        class: "userMessage"
+      }));
 
+      fetch("https://invoice-ai-agent.cfapps.us10-001.hana.ondemand.com/ask", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ question: sQuestion })
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("Server response error");
+          }
+          return response.json();
+        })
+        .then(data => {
+          oChatContainer.addItem(new Text({
+            text: "🤖 " + data.answer,
+            class: "aiMessage"
+          }));
+        })
+        .catch(error => {
+          oChatContainer.addItem(new Text({
+            text: "⚠️ Error: " + error.message,
+            class: "errorMessage"
+          }));
         });
+
+      oView.byId("aiInput").setValue("");
     }
   });
 });
